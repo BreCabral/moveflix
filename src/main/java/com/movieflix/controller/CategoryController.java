@@ -24,4 +24,14 @@ public class CategoryController {
         return categoryService.saveCategory(category);
     }
 
+    @GetMapping("/{id}")
+    public Category getCategoryById(@PathVariable Long id) {
+        return categoryService.findById(id).orElse(null);
+    }
+
+    @DeleteMapping("/{id}")
+    public void deleteCategoryById(@PathVariable Long id) {
+        categoryService.deleteCategory(id);
+    }
+
 }
